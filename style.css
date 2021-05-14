@@ -17,6 +17,7 @@
     --white: hsl(0, 0%, 100%);
     --main: hsla(0, 0%, 100%, 0.75);
     --stat: hsla(0, 0%, 100%, 0.6);
+    --br: 10px;
 }
 
 body {
@@ -45,9 +46,6 @@ main {
     background-color: var(--cardbg);
 
     display: flex;
-    /* ################### */
-    flex-direction: row-reverse;
-
 }
 
 p {
@@ -58,15 +56,13 @@ p {
 
 .text {
     margin: 2rem;
+    align-self: center;
 }
 
 .stats-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    
-    /* ################### */
-    flex-direction: row;
+    justify-content: space-between; 
 }
 
 .stat {
@@ -74,7 +70,7 @@ p {
     text-transform: uppercase;
     display: flex;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1rem 0 1rem 0;
 }
 
 .stat-number {
@@ -89,11 +85,49 @@ p {
     font-family: 'Lexend Deca', sans-serif; 
 }
 
-.image {
-    min-width: 50%;
-    background: linear-gradient(var(--accent-op), var(--accent-op)), url(./images/image-header-desktop.jpg);
-}
 
-/* font-family: 'Inter', sans-serif; 15px*/
-/* */
-/* mobile 375px desktop 1440px */
+
+
+@media (max-width: 1000px) {
+    main {
+        flex-direction: column;
+        max-width: 375px;
+        margin: 1rem 0 1rem 0;
+        border-radius: 0 0 var(--br) var(--br);
+    }
+    .image {
+        min-height: 250px;
+        background: linear-gradient(var(--accent-op), var(--accent-op)), url(./images/image-header-mobile.jpg);
+        background-size: cover;
+
+        border-radius: var(--br) var(--br) 0 0;
+    }
+    .stats-bar {
+        flex-direction: column;
+
+    }
+    h1, p {
+        text-align: center;
+    }
+}
+@media (min-width: 1000px) {
+    main {
+        flex-direction: row-reverse;
+        max-width: 1000px;
+        min-height: 440px;
+        border-radius: var(--br) 0 0 var(--br);
+    }
+    .image {
+        /* ############################################# */
+        min-width: 50%;
+        background: linear-gradient(var(--accent-op), var(--accent-op)), url(./images/image-header-desktop.jpg);
+        border-radius: 0 var(--br) var(--br) 0;
+    }
+    .stats-bar {
+        padding-top: 1rem;
+        flex-direction: row;
+    }
+    .text {
+        margin-right: 5rem;
+    }
+}
