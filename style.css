@@ -106,6 +106,9 @@ p {
         flex-direction: column;
 
     }
+    .stat {
+        text-align: center;
+    }
     h1, p {
         text-align: center;
     }
